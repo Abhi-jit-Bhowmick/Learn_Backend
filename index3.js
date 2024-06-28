@@ -13,11 +13,6 @@ app.use("/currenciesone", currenciesRoutes)
 
 app.use("/users", userRoutes)
 
-
-
-
-
-
 app.listen(PORT, () => {
     console.log("App Listening at port::", PORT)
 })
