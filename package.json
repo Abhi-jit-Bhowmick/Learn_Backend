@@ -1,0 +1,21 @@
+{
+  "name": "node-backend",
+  "version": "1.0.0",
+  "description": "Learning-purpouse",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev2": "nodemon index2.js",
+    "dev3": "nodemon index3.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhijit Bhowmick",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
