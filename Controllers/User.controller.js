@@ -1,3 +1,4 @@
+const { getQuerryErrors } = require("../Validators/User.validetor");
 const { data } = require("../db/Users.json");
 
 
@@ -25,6 +26,43 @@ const getUserByID = (req, res) => {
 const getUserByQuery = (req, res) => {
     const { gender, age } = req.query;
     let result;
+
+    // if (!age && !gender) {
+    //     res.status(422).json({
+    //         message: "Missing Search Parameters, search using age and/or gender",
+    //     });
+    // }
+
+    // if (age) {
+    //     if (!Number(age)) {
+    //         return res
+    //             .status(422)
+    //             .json({ message: "Age parameter should be a number" });
+    //     }
+    //     if (age >= 100 || age < 0) {
+    //         return res
+    //             .status(422)
+    //             .json({
+    //                 message: "Age out of bounds. It should be a number between 0 and 100",
+    //             });
+    //     }
+    // }
+
+
+    // if (gender) {
+    //     if (!["female", "male"].includes(gender)) {
+    //         return res
+    //             .status(422)
+    //             .json({ message: "Gender to search can either be 'male' or 'female'" });
+    //     }
+    // }
+
+
+    const error = getQuerryErrors({ age, gender });
+
+    if (error) {
+        res.status(422).json(error)
+    }
 
     if (gender && age) {
         result = data.filter((ele) => (
