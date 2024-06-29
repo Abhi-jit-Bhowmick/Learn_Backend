@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
+
 const PORT = 8084;
 const currenciesRoutes = require("./Routes/Currencies.routes")
 const userRoutes = require("./Routes/Users.routes")

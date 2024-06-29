@@ -1,7 +1,8 @@
 const { data } = require("../db/Currencies1.json")
 
 // Set the password
-const PASSWORD = "LetMeIn"
+// const PASSWORD = "LetMeIn"
+const PASSWORD = process.env.ROUTE_PASSWORD
 
 
 const getCurrenciesOneHeading = (req, res) => {
@@ -12,6 +13,7 @@ const getCurrenciesOneHeading = (req, res) => {
 // Api Password protection
 const verifyAuth = (req) => {
     const { authorization } = req.headers;
+    console.log("PASSWORD::", PASSWORD);
     // console.log(authorization)
     if (!authorization) {
         return false
