@@ -1,12 +1,34 @@
 const { data } = require("../db/Currencies1.json")
 
+// Set the password
+const PASSWORD = "LetMeIn"
+
 
 const getCurrenciesOneHeading = (req, res) => {
     res.send("<h1>Currencies One Data</h1>")
 }
 
 
+// Api Password protection
+const verifyAuth = (req) => {
+    const { authorization } = req.headers;
+    // console.log(authorization)
+    if (!authorization) {
+        return false
+    } else if (authorization !== PASSWORD) {
+        return false
+    }
+
+    return true
+
+}
+
+
 const getCurrenciesOneData = (req, res) => {
+
+    if (!verifyAuth(req)) {
+        res.status(403).json({ "message": "Unauthorized request" })
+    }
 
     const { min_value } = req.query;
 

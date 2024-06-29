@@ -11,5 +11,4 @@ const getQuerryErrors = (incomingUserData) => {
     return result.error
 }
 
-
 module.exports = { getQuerryErrors }
