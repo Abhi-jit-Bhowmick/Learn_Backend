@@ -1,4 +1,4 @@
-const { getQuerryErrors } = require("../Validators/User.validetor");
+const { getQuerryErrors } = require("../middlewares/Validators/User.validetor");
 const { data } = require("../db/Users.json");
 
 
@@ -58,11 +58,11 @@ const getUserByQuery = (req, res) => {
     // }
 
 
-    const error = getQuerryErrors({ age, gender });
+    // const error = getQuerryErrors({ age, gender });
 
-    if (error) {
-        res.status(422).json(error)
-    }
+    // if (error) {
+    //     res.status(422).json(error)
+    // }
 
     if (gender && age) {
         result = data.filter((ele) => (

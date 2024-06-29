@@ -11,26 +11,26 @@ const getCurrenciesOneHeading = (req, res) => {
 
 
 // Api Password protection
-const verifyAuth = (req) => {
-    const { authorization } = req.headers;
-    console.log("PASSWORD::", PASSWORD);
-    // console.log(authorization)
-    if (!authorization) {
-        return false
-    } else if (authorization !== PASSWORD) {
-        return false
-    }
+// const verifyAuth = (req) => {
+//     const { authorization } = req.headers;
+//     console.log("PASSWORD::", PASSWORD);
+//     // console.log(authorization)
+//     if (!authorization) {
+//         return false
+//     } else if (authorization !== PASSWORD) {
+//         return false
+//     }
 
-    return true
+//     return true
 
-}
+// }
 
 
 const getCurrenciesOneData = (req, res) => {
 
-    if (!verifyAuth(req)) {
-        res.status(403).json({ "message": "Unauthorized request" })
-    }
+    // if (!verifyAuth(req)) {
+    //     res.status(403).json({ "message": "Unauthorized request" })
+    // }
 
     const { min_value } = req.query;
 
